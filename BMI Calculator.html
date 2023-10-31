@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BMI Calculator</title>
+</head>
+<body>
+    <h1>Check your BMI</h1>
+    <h2>Enter your weight and height below to check your BMI results</h2>
+    <h2>Put your weight in here(KG)</h2>
+    <input type="text" id="enterweight">
+    <h2>And your height in here(CM)</h2>
+    <input type="text" id="enterheight">
+    <button>Calculate BMI</button>
+    <h2 id="ans">Answer</h2>
+
+    <script>
+
+        var weight = document.querySelector("#enterweight");
+        var height = document.querySelector("#enterheight");
+        var output = document.querySelector("#ans");
+        var click = document.querySelector("button");
+
+
+        click.addEventListener("click",function(){
+            var bmi = Math.round((weight.value)/(height.value*height.value));
+            
+            if(bmi <= 18.4){
+                output.innerHTML = "Your BMI is "+ bmi +" which means you are Under Weight";
+            }
+            else if(bmi >= 18.5 && bmi <= 24.9){
+                output.innerHTML = "Your BMI is "+ bmi +" which means you are Normal Weight";
+            }
+            else if(bmi >= 25 && bmi <= 29.9){
+                output.innerHTML = "Your BMI is "+ bmi +" which means you are Over Weight";
+            }
+            else if(bmi >= 30){
+                output.innerHTML = "Your BMI is "+ bmi +" which means you are Normal Weight";
+            }
+            else{
+                output.innerHTML = "OOPS! Looks like you entered a wrong input";
+            }
+        })
+
+
+    </script>
+</body>
+</html>
+

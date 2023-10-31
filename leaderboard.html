@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Comparing the values</title>
+    <style>
+        #box{
+            border: 2px solid red;
+            width: 70%;
+            margin: auto;
+        }
+        #heading{
+            border: 2px solid greenyellow;
+            width: 24.4%;
+            margin: auto;
+            margin-top: 20px;
+            margin-bottom: 40px;
+        }
+        #button{
+            border: 2px solid black;
+            width: 40%;
+            display: grid;
+            column-gap: 20px;
+            grid-template-columns: auto auto;
+            margin: auto;
+            margin-bottom: 15px;
+        }
+    </style>
+</head>
+<body>
+    <div id="box">
+
+        <div>
+            <h1 id="heading">LEADER-BOARD</h1>
+        </div>
+
+        <div>
+            <h2>
+                Enter the Number : <input type="text" id="value">
+            </h2>           
+        </div>
+
+        <div>
+            <h2 id="min">Minimum Value : 10</h2>
+            <h2 id="max">Maximum Value : 100</h2>
+        </div>
+
+        <div id="button">
+            <button id="en">ENTER</button>
+            <button id="sc">SCORE</button>
+        </div>
+
+    </div>
+
+    <script>
+        var data = document.querySelector("#value");
+        var enter = document.querySelector("#en");
+
+        var newmin = document.querySelector("#min");
+        var newmax = document.querySelector("#max");
+
+        var empty = document.querySelector("#sc");
+
+        enter.addEventListener("click",function(){
+
+            var mi = 10;
+            var ma = 100;
+
+            if(data.value > ma){
+                newmax.innerHTML = "Maximum Value : "+data.value;
+            }
+            else if(data.value < mi){
+                newmin.innerHTML = "Minimum Value : "+data.value;
+            }
+            else if(data.value > mi && data.value < ma){
+                alert("Entered value "+data.value+" is not smaller than the minimum value and the not greater than the maximum value");
+            }
+        })
+
+        empty.addEventListener("click",function(){
+            newmin.innerHTML = "Minimum Value : 10";
+            newmax.innerHTML = "Maximum Value : 100";
+        })
+
+    </script>
+</body>
+</html>
